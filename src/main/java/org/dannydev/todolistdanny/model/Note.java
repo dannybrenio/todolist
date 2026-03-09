@@ -14,14 +14,22 @@ public class Note {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)//foreign key column
-    private User user_id;
-
-    @Column(name ="password")
-    private String password;
+    private User user;
 
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }
