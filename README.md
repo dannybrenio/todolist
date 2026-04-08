@@ -1,1 +1,1 @@
-todolist made with springboot
+Tololist Web Application in Springboot
