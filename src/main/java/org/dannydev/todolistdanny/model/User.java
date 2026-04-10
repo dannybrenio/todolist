@@ -34,9 +34,35 @@ public class User{
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
     }
-
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
+    }
+
+    //getters and setters
+    public Integer getID(){
+        return user_id;
+    }
+
+    public String getUsername(){
+        return username;
+    }
+    public void setUsername(String username){
+        this.username = username;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt(){
+        return updatedAt;
     }
 }
