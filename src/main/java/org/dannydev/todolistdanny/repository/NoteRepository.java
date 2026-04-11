@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import org.dannydev.todolistdanny.model.Note;
 
 @Repository
-public interface NoteRepository extends JpaRepository<Note, Long> {
+public interface NoteRepository extends JpaRepository<Note, Integer> {
 
 }
