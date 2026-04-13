@@ -22,6 +22,9 @@ public class Note {
     @Column(name = "note_body")
     private String noteBody;
 
+    @Column(name = "status")
+    private Integer status;
+
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
@@ -45,6 +48,14 @@ public class Note {
         return note_id;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String getNoteTitle(){
         return noteTitle;
     }
@@ -59,6 +70,14 @@ public class Note {
 
     public void setNoteBody(String noteBody){
         this.noteBody = noteBody;
+    }
+
+    public Integer getStatus(){
+        return status;
+    }
+
+    public void setStatus(Integer status){
+        this.status = status;
     }
 
     public LocalDateTime getCreatedAt(){

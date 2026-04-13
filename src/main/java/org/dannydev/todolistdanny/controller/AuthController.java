@@ -34,7 +34,7 @@ public class AuthController {
 
         if(user.isPresent()){
             session.setAttribute("user", user.get());
-            return "redirect:/index";
+            return "redirect:/notes";
         }
         model.addAttribute("error", "Invalid credentials");
         return  "login";

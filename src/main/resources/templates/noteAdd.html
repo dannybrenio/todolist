@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Note Add</title>
+</head>
+<body>
+    <form action="/notes/add" method="post">
+        <label>Note Title</label>
+        <br>
+        <input type="text" name="noteTitle" placeholder="Note Title" required>
+        <br><br>
+
+        <input type="hidden" name="status" value="1">
+
+        <label>Note Body</label>
+        <br>
+        <input type="text" name="noteBody" placeholder="Note Body" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

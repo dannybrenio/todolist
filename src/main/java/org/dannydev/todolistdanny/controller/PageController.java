@@ -5,22 +5,40 @@ import org.dannydev.todolistdanny.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
 
     @GetMapping("/index")
+    public String indexPage(){
+        return "index";
+    }
+
+    @GetMapping("/notes")
     public String homePage(HttpSession session, Model model){
         User user = (User) session.getAttribute("user");
 
         if(user != null){
             Integer userId = user.getID();
             System.out.println("user id:" + userId);
+            model.addAttribute("user", user);
+            model.addAttribute("userId", userId);
         }else{
             return "redirect:/login";
         }
-        return "index";
+        return "notes";
     }
+
+    @GetMapping("/notes/add")
+    public String noteAddPage(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if(user == null){
+            return "redirect:/login";
+        }
+        return "noteAdd";
+    }
+
 
     @GetMapping("/login")
     public String loginPage(){
