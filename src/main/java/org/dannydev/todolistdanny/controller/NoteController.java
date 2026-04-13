@@ -6,8 +6,11 @@ import org.dannydev.todolistdanny.service.NoteService;
 import org.dannydev.todolistdanny.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/notes")
@@ -23,11 +26,10 @@ public class NoteController {
             return "redirect:/login";
         }
         note.setUser(user);
-
-        System.out.println("USER ID: " + user.getID());
-        System.out.println("TITLE: " + note.getNoteTitle());
-        System.out.println("BODY: " + note.getNoteBody());
-        System.out.println("STATUS: " + note.getStatus());
+//        System.out.println("USER ID: " + user.getID());
+//        System.out.println("TITLE: " + note.getNoteTitle());
+//        System.out.println("BODY: " + note.getNoteBody());
+//        System.out.println("STATUS: " + note.getStatus());
         noteService.addNote(note);
         return "redirect:/notes";
     }

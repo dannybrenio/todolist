@@ -1,15 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Notes</title>
 </head>
-<h1>NOTES</h1>
-<a href="/notes/add">
-    <button>Add Note</button>
-</a>
 <body>
+
+<h1>My Notes</h1>
+
+<button><a href="/notes/add">Add Note</a></button>
+
+<div th:each="note : ${notes}">
+    <h3 th:text="${note.noteTitle}"></h3>
+    <p th:text="${note.noteBody}"></p>
+
+    <form th:action="@{/notes/delete/{id}(id=${note.noteId})}" method="post">
+        <button type="submit">Delete</button>
+    </form>
+</div>
 
 </body>
 </html>
