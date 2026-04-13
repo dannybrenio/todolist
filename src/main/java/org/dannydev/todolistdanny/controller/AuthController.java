@@ -22,9 +22,9 @@ public class AuthController {
         boolean success = userService.register(user);
         if(!success){
             model.addAttribute("error", "Username exists");
-            return "redirect:/register.html";
+            return "register";
         }
-        return "redirect:/login.html";
+        return "login";
     }
 
     @PostMapping("/login")
@@ -34,9 +34,9 @@ public class AuthController {
 
         if(user.isPresent()){
             session.setAttribute("user", user.get());
-            return "redirect:/index.html";
+            return "redirect:/index";
         }
         model.addAttribute("error", "Invalid credentials");
-        return  "redirect:/login.html";
+        return  "login";
     }
 }
